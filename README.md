@@ -1,5 +1,6 @@
-# gis_analysis_eifel_forest
-LiDAR-Driven Canopy Height and Biomass Estimation in Eifel National Park, Germany
+# GIS Analysis and Estimation of a Forest Carbon Stock
+QGIS analysis of LiDAR data provided by geoportal.nrw to estimate carbon stocks in the National Park's forests. Combination of Digital Terrain Model (DTM) and Digital Surface Model (DSM) with Enhanced Vegetation Index (EVI) to identify tree heights and derive a Canopy Height Model (CHM).
+I combined allometric equations to estimate above-ground carbon in trees by only using the height of the trees. Furhtermore, I included distances to roads and trails to analyze the correlation with tree heights. The resulting map shows where there are carbon hotspots in the forest. The correlation analysis showed no major correlation between road distance and tree height.
 
 
 ## Biomass & Carbon calculation based solely on Height
@@ -21,6 +22,15 @@ Finally, to calculate carbon stocks (C) in above-ground biomass from trees, ofte
 C = AGB x CF = 0.5 x AGB
 
 ## Sources
+
+### Data Sources
+
+DTM, DSM and map of National Park's roads: https://www.geoportal.nrw/
+
+Sentinel-2 satellite image bands: https://browser.dataspace.copernicus.eu/
+
+### Scientific Sources
+
 Chave, J., Réjou-Méchain, M., Búrquez, A., Chidumayo, E., Colgan, M. S., Delitti, W. B., ... & Vieilledent, G. (2014). Improved allometric models to estimate the aboveground biomass of tropical trees. Global Change Biology, 20(10), 3177–3190.
 
 Cienciala, E., Černý, M., Apltauer, J., & Exnerová, Z. (2005). Biomass functions applicable to European beech. Journal of Forest Science, 51(4), 147–154.
