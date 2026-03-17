@@ -2,6 +2,30 @@
 QGIS analysis of LiDAR data provided by geoportal.nrw to estimate carbon stocks in the National Park's forests. Combination of Digital Terrain Model (DTM) and Digital Surface Model (DSM) with Enhanced Vegetation Index (EVI) to identify tree heights and derive a Canopy Height Model (CHM).
 I combined allometric equations to estimate above-ground carbon in trees by only using the height of the trees. Furhtermore, I included distances to roads and trails to analyze the correlation with tree heights. The resulting map shows where there are carbon hotspots in the forest. The correlation analysis showed no major correlation between road distance and tree height.
 
+## Analysis Workflow
+The analysis follows a reproducible, step-by-step GIS pipeline built in QGIS:
+1. Data Acquisition
+DTM and DSM downloaded from geoportal.nrw
+Sentinel-2 bands retrieved from Copernicus Data Space Browser
+Road and trail network obtained from geoportal.nrw
+
+2. Canopy Height Model (CHM)
+CHM derived by subtracting DTM from DSM
+Enhanced Vegetation Index (EVI) applied to isolate vegetated areas and reduce noise
+
+3. Biomass Estimation
+Tree height extracted per pixel from CHM
+Above-Ground Biomass (AGB) calculated using combined allometric equations (Repola 2009, Cienciala et al. 2005, Chave et al. 2014)
+Diameter at Breast Height (DBH) approximated from height (Pretzsch 2009)
+
+4. Carbon Stock Calculation
+Carbon fraction of 0.5 applied to AGB (IPCC 2006)
+Results aggregated per hectare
+
+5. Spatial Analysis
+Distance to road types calculated for all pixels
+Pearson correlation computed between tree height and road distance per access type
+Results visualized as correlation matrix and choropleth map
 
 ## Biomass & Carbon calculation based solely on Height
 The primary focus of this project is to showcase and explore different GIS functionalities and potentials in working with LiDAR and remote sensing data. Therefore, a very simple and generalizing approach was chosen to calculate the biomass and hence the final carbon stored in Eifel National Park's forest's trees.
