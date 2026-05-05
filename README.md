@@ -4,25 +4,25 @@ I combined allometric equations to estimate above-ground carbon in trees by only
 
 ## Analysis Workflow
 The analysis follows a reproducible, step-by-step GIS pipeline built in QGIS:
-1. Data Acquisition
+#### 1. Data Acquisition
 DTM and DSM downloaded from geoportal.nrw
 Sentinel-2 bands retrieved from Copernicus Data Space Browser
 Road and trail network obtained from geoportal.nrw
 
-2. Canopy Height Model (CHM)
+#### 2. Canopy Height Model (CHM)
 CHM derived by subtracting DTM from DSM
 Enhanced Vegetation Index (EVI) applied to isolate vegetated areas and reduce noise
 
-3. Biomass Estimation
+#### 3. Biomass Estimation
 Tree height extracted per pixel from CHM
 Above-Ground Biomass (AGB) calculated using combined allometric equations (Repola 2009, Cienciala et al. 2005, Chave et al. 2014)
 Diameter at Breast Height (DBH) approximated from height (Pretzsch 2009)
 
-4. Carbon Stock Calculation
+#### 4. Carbon Stock Calculation
 Carbon fraction of 0.5 applied to AGB (IPCC 2006)
 Results aggregated per hectare
 
-5. Spatial Analysis
+#### 5. Spatial Analysis
 Distance to road types calculated for all pixels
 Pearson correlation computed between tree height and road distance per access type
 Results visualized as correlation matrix and choropleth map
